@@ -1,11 +1,123 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>وبلاگ | Blog</title>
+    <title>ketab</title>
+    <meta
+      name="description"
+      content="ketab — notes on Django and building small things on the web."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Django: {% load static %} then href="{% static 'css/style.css' %}" -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-    <h1>Home</h1>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+
+    <!-- Django: this whole header lives in templates/base.html -->
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">k</span>
+          <span class="brand-name">ketab</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Toggle menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav">
+          <a href="index.html" class="nav-link is-active">Home</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="panel.html" class="nav-link nav-link--cta">Panel</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap home">
+      <section class="intro">
+        <h1 class="intro-title">ketab</h1>
+        <p class="intro-text">
+          A small journal about Django, Python and the web — written while
+          learning, kept short on purpose.
+        </p>
+        <div class="intro-links">
+          <a class="btn btn--primary" href="blog.html">Read the blog</a>
+          <a class="btn" href="panel.html">Panel</a>
+        </div>
+      </section>
+
+      <section class="recent" aria-labelledby="recent-title">
+        <h2 id="recent-title" class="recent-title">Recent</h2>
+
+        <!-- Django: {% for post in recent_posts %} -->
+        <ul class="recent-list">
+          <li>
+            <a href="post.html">
+              <span class="recent-name"
+                >Understanding the request/response cycle</span
+              >
+              <span class="recent-meta"
+                ><span class="dot-cat">Django</span
+                ><time datetime="2026-08-18">Aug 18</time></span
+              >
+            </a>
+          </li>
+          <li>
+            <a href="post.html">
+              <span class="recent-name"
+                >Designing a blog schema you won't regret</span
+              >
+              <span class="recent-meta"
+                ><span class="dot-cat">Models</span
+                ><time datetime="2026-08-11">Aug 11</time></span
+              >
+            </a>
+          </li>
+          <li>
+            <a href="post.html">
+              <span class="recent-name"
+                >Template inheritance without the mess</span
+              >
+              <span class="recent-meta"
+                ><span class="dot-cat">Templates</span
+                ><time datetime="2026-08-04">Aug 4</time></span
+              >
+            </a>
+          </li>
+        </ul>
+        <!-- Django: {% endfor %} -->
+
+        <a class="more-link" href="blog.html"
+          >All posts <span aria-hidden="true">→</span></a
+        >
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <span>© <span data-year>2026</span> ketab</span>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="blog.html">Blog</a>
+          <a href="panel.html">Panel</a>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Django: src="{% static 'js/main.js' %}" -->
+    <script src="static/js/main.js"></script>
   </body>
 </html>
