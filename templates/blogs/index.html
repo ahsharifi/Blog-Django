@@ -1,11 +1,101 @@
+{% load static %}
+
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>بلاگ | blogs</title>
+    <title>Blog — ketab</title>
+    <meta name="description" content="All posts on ketab." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-    <h1>Blogs</h1>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">k</span>
+          <span class="brand-name">ketab</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Toggle menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/blogs" class="nav-link is-active">Blog</a>
+          <a href="/admin" class="nav-link nav-link--cta">Panel</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="page-head">
+        <h1 class="page-title">Blog</h1>
+        <span class="count">6 posts</span>
+      </div>
+
+      <div class="cards">
+        {% for post in posts %}
+        <article class="card">
+          <div class="card-media">
+            <img
+              src="{% static "img/covers/" %}{{ post.image }}"
+              alt="{{ post.title }}"
+              loading="lazy"
+              width="800"
+              height="450"
+            />
+            <span class="card-cat">{{ post.category }}</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">
+              <a href="post.html">{{ post.title }}</a>
+            </h2>
+            <p class="card-excerpt">{{ post.description }}</p>
+            <ul class="tags">
+              {% for tag in post.tags %}
+              <li>{{ tag }}</li>
+              {% endfor %}
+            </ul>
+            <div class="card-foot">
+              <span class="author">
+                <span class="avatar">{{ post.author|first|upper }}</span>
+                <span class="author-name">{{ post.author }}</span>
+              </span>
+              <span class="card-meta">{{ post.date }}</span>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <span>© <span data-year>2026</span> ketab</span>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="blog.html">Blog</a>
+          <a href="panel.html">Panel</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>
