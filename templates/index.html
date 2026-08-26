@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en" dir="ltr">
   <head>
@@ -58,66 +60,19 @@
           <a class="btn" href="/admin">Panel</a>
         </div>
       </section>
-
-      <section class="recent" aria-labelledby="recent-title">
-        <h2 id="recent-title" class="recent-title">Recent</h2>
-
-        <!-- Django: {% for post in recent_posts %} -->
-        <ul class="recent-list">
-          <li>
-            <a href="post.html">
-              <span class="recent-name"
-                >Understanding the request/response cycle</span
-              >
-              <span class="recent-meta"
-                ><span class="dot-cat">Django</span
-                ><time datetime="2026-08-18">Aug 18</time></span
-              >
-            </a>
-          </li>
-          <li>
-            <a href="post.html">
-              <span class="recent-name"
-                >Designing a blog schema you won't regret</span
-              >
-              <span class="recent-meta"
-                ><span class="dot-cat">Models</span
-                ><time datetime="2026-08-11">Aug 11</time></span
-              >
-            </a>
-          </li>
-          <li>
-            <a href="post.html">
-              <span class="recent-name"
-                >Template inheritance without the mess</span
-              >
-              <span class="recent-meta"
-                ><span class="dot-cat">Templates</span
-                ><time datetime="2026-08-04">Aug 4</time></span
-              >
-            </a>
-          </li>
-        </ul>
-        <!-- Django: {% endfor %} -->
-
-        <a class="more-link" href="blog.html"
-          >All posts <span aria-hidden="true">→</span></a
-        >
-      </section>
     </main>
 
     <footer class="site-footer">
       <div class="wrap footer-inner">
         <span>© <span data-year>2026</span> ketab</span>
         <nav class="footer-nav">
-          <a href="index.html">Home</a>
-          <a href="blog.html">Blog</a>
-          <a href="panel.html">Panel</a>
+          <a href="/">Home</a>
+          <a href="/blogs">Blog</a>
+          <a href="/admin">Panel</a>
         </nav>
       </div>
     </footer>
 
-    <!-- Django: src="{% static 'js/main.js' %}" -->
-    <script src="static/js/main.js"></script>
+    <script src="{% static "js/main.js" %}"></script>
   </body>
 </html>

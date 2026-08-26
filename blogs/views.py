@@ -19,7 +19,7 @@ def index(request):
       "category": "Models",
       "tags": ['models', 'schema'],
       "author": "ahsharifi",
-      "date": "Aug 12 - 6 min",
+      "date": "Aug 13 - 6 min",
     },
     {
       "title": "How to use Django's built-in authentication",
@@ -32,4 +32,6 @@ def index(request):
     },
   ]
 
-  return render(request, 'blogs/index.html', { "posts": data })
+  recent_posts = sorted(data, key=lambda post: post['date'], reverse=True)[:3]
+
+  return render(request, 'blogs/index.html', { "posts": data, "recent_posts": recent_posts })

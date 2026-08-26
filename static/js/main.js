@@ -1,5 +1,3 @@
-// ketab — shared page interactions (works on every page)
-
 document.addEventListener("DOMContentLoaded", () => {
   // footer year
   document.querySelectorAll("[data-year]").forEach((el) => {
@@ -24,11 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // reveal cards as they enter the viewport (blog list page)
   const cards = document.querySelectorAll(".card");
   if (!cards.length) return;
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
 
   if (reduceMotion || !("IntersectionObserver" in window)) {
     cards.forEach((card) => card.classList.add("is-in"));
@@ -44,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.1, rootMargin: "0px 0px -40px" }
+    { threshold: 0.1, rootMargin: "0px 0px -40px" },
   );
 
   cards.forEach((card) => observer.observe(card));
