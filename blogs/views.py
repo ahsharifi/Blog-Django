@@ -32,6 +32,4 @@ def index(request):
     },
   ]
 
-  recent_posts = sorted(data, key=lambda post: post['date'], reverse=True)[:3]
-
-  return render(request, 'blogs/index.html', { "posts": data, "recent_posts": recent_posts })
+  return render(request, 'blogs/index.html', { "posts": data })
