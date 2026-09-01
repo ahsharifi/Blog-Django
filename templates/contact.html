@@ -1,28 +1,14 @@
 {% load static %}
 
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ketab</title>
-    <meta
-      name="description"
-      content="ketab — notes on Django and building small things on the web."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Contact</title>
   </head>
   <body>
-    <div class="grid-bg" aria-hidden="true"></div>
-    <div class="glow" aria-hidden="true"></div>
-
-    <!-- Django: this whole header lives in templates/base.html -->
     <header class="site-header">
       <div class="wrap header-inner">
         <a class="brand" href="index.html">
@@ -40,28 +26,18 @@
         </button>
 
         <nav class="site-nav" id="site-nav">
-          <a href="/" class="nav-link is-active">Home</a>
+          <a href="/" class="nav-link">Home</a>
           <a href="/blogs" class="nav-link">Blog</a>
           <a href="/about" class="nav-link">About</a>
-          <a href="/contact" class="nav-link">Contact</a>
+          <a href="/contact" class="nav-link is-active">Contact</a>
           <a href="/admin" class="nav-link nav-link--cta">Panel</a>
         </nav>
       </div>
     </header>
 
-    <main class="wrap home">
-      <section class="intro">
-        <h1 class="intro-title">ketab</h1>
-        <p class="intro-text">
-          A small journal about Django, Python and the web — written while
-          learning, kept short on purpose.
-        </p>
-        <div class="intro-links">
-          <a class="btn btn--primary" href="/blogs">Read the blog</a>
-          <a class="btn" href="/admin">Panel</a>
-        </div>
-      </section>
-    </main>
+    <div class="wrap">
+      <h1>Contact</h1>
+    </div>
 
     <footer class="site-footer">
       <div class="wrap footer-inner">
@@ -75,7 +51,5 @@
         </nav>
       </div>
     </footer>
-
-    <script src="{% static "js/main.js" %}"></script>
   </body>
 </html>
