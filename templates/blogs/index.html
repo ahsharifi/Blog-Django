@@ -52,9 +52,9 @@
         <span class="count">{{ posts|length }} posts</span>
       </div>
 
-      <div class="cards">
+      <ul class="cards">
         {% for post in posts %}
-        <article class="card">
+        <li class="card">
           <div class="card-media">
             <img
               src="{% static "img/covers/" %}{{ post.image }}"
@@ -67,7 +67,7 @@
           </div>
           <div class="card-body">
             <h2 class="card-title">
-              <a href="post.html">{{ post.title }}</a>
+              <a href="/blogs/blog-details/{{ post.id }}">{{ post.title }}</a>
             </h2>
             <p class="card-excerpt">{{ post.description }}</p>
             <ul class="tags">
@@ -83,9 +83,9 @@
               <span class="card-meta">{{ post.date }}</span>
             </div>
           </div>
-        </article>
+        </li>
         {% endfor %}
-      </div>
+      </ul>
     </main>
 
     <footer class="site-footer">

@@ -42,17 +42,17 @@
         <span class="count">{{ products|length }} products</span>
       </div>
 
-      <div class="cards">
+      <ul class="cards">
         {% for product in products %}
-        <article>
+        <li>
           <div class="card-body">
             <h2 class="card-title">{{ product.name }}</h2>
             <p class="card-excerpt">{{ product.category }}</p>
             <p class="card-excerpt">{{ product.price }}</p>
           </div>
-        </article>
+        </li>
         {% endfor %}
-      </div>
+      </ul>
     </main>
 
     <footer class="site-footer">

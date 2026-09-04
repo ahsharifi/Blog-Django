@@ -1,0 +1,15 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="{% static "img/covers/" %}{{ data.image }}" />
+    <h1>{{ data.title }}</h1>
+    <p>{{ data.description }}</p>
+  </body>
+</html>
