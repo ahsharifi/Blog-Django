@@ -1,8 +1,6 @@
 from django.shortcuts import render
 
-def index(request):
-
-  data = [
+data = [
     {
       "id": 1,
       "name": "Item1",
@@ -23,4 +21,16 @@ def index(request):
     }
   ]
 
+def index(request):
   return render(request, 'shop/index.html', { 'products': data })
+
+def details(request, id):
+
+  selected = {}
+
+  for item in data:
+    if item["id"] == id:
+      selected = item
+      break
+
+  return render(request, 'shop/details.html', { "product": selected })
