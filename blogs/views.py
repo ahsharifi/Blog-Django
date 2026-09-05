@@ -6,11 +6,6 @@ def index(request):
   return render(request, 'blogs/index.html', { "posts": data })
 
 def details(request, id):
-  detail = {}
-
-  for item in data:
-    if item["id"] == id:
-      detail = item
-      break
+  detail = Blog.objects.get(id = id)
 
   return render(request, 'blogs/details.html', {"data": detail})
