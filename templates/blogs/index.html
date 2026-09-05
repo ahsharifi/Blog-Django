@@ -53,7 +53,10 @@
       </div>
 
       <ul class="cards">
-        {% for post in posts %}
+        {% for item in data %}
+              <a href="{% url 'blogs_details' item.id %}">{{ item.title }}</a>
+        {% endfor %}
+        {% comment %} {% for post in posts %}
         <li class="card">
           <div class="card-media">
             <img
@@ -67,7 +70,7 @@
           </div>
           <div class="card-body">
             <h2 class="card-title">
-              <a href="/blogs/blog-details/{{ post.id }}">{{ post.title }}</a>
+              <a href="{% url 'blogs_details' blog.id %}">{{ post.title }}</a>
             </h2>
             <p class="card-excerpt">{{ post.description }}</p>
             <ul class="tags">
@@ -84,7 +87,7 @@
             </div>
           </div>
         </li>
-        {% endfor %}
+        {% endfor %} {% endcomment %}
       </ul>
     </main>
 
