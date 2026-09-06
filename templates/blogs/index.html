@@ -53,41 +53,16 @@
       </div>
 
       <ul class="cards">
-        {% for item in data %}
-              <a href="{% url 'blogs_details' item.id %}">{{ item.title }}</a>
-        {% endfor %}
-        {% comment %} {% for post in posts %}
+        {% for item in posts %}
         <li class="card">
-          <div class="card-media">
-            <img
-              src="{% static "img/covers/" %}{{ post.image }}"
-              alt="{{ post.title }}"
-              loading="lazy"
-              width="800"
-              height="450"
-            />
-            <span class="card-cat">{{ post.category }}</span>
-          </div>
           <div class="card-body">
             <h2 class="card-title">
-              <a href="{% url 'blogs_details' blog.id %}">{{ post.title }}</a>
+              <a href="{% url 'blogs_details' item.id %}">{{ item.title }}</a>
             </h2>
-            <p class="card-excerpt">{{ post.description }}</p>
-            <ul class="tags">
-              {% for tag in post.tags %}
-              <li>{{ tag }}</li>
-              {% endfor %}
-            </ul>
-            <div class="card-foot">
-              <span class="author">
-                <span class="avatar">{{ post.author|first|upper }}</span>
-                <span class="author-name">{{ post.author }}</span>
-              </span>
-              <span class="card-meta">{{ post.date }}</span>
-            </div>
+            <p class="card-excerpt">{{ item.content }}</p>
           </div>
         </li>
-        {% endfor %} {% endcomment %}
+        {% endfor %}
       </ul>
     </main>
 
