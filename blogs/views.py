@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from blogs.models import Blog
 
 def index(request):
@@ -6,6 +6,6 @@ def index(request):
   return render(request, 'blogs/index.html', { "posts": data })
 
 def details(request, id):
-  detail = get_object_or_404(Blog.objects.get(id = id))
+  detail = Blog.objects.get(id = id)
 
   return render(request, 'blogs/details.html', {"data": detail})
