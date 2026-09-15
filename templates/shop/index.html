@@ -46,8 +46,10 @@
         {% for product in products %}
         <li>
           <div class="card-body">
+            <p class="card-excerpt">{{ forloop.counter }}</p>
             <h2 class="card-title">{{ product.title }}</h2>
             <p class="card-excerpt">{{ product.price }}</p>
+            <p class="card-excerpt">{{ product.category_id.title }}</p>
             <a href="/shop/details/{{ product.id }}" target="_blank">Show</a>
           </div>
         </li>
