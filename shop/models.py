@@ -15,7 +15,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=200, unique=True, verbose_name="لینک")
     description = models.TextField(null=True, blank=True, verbose_name="توضیحات")
     price = models.DecimalField(max_digits=12, decimal_places=0, verbose_name="قیمت")
-    category_id = models.ForeignKey(Category, models.CASCADE, null=True, verbose_name="دسته بندی")
+    category_id = models.ForeignKey(Category, models.PROTECT, null=True, verbose_name="دسته بندی")
     status = models.BooleanField(verbose_name="وضعیت", default=True)
 
     def __str__(self):

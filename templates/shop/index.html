@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <title>Contact</title>
+    <title>Shop</title>
   </head>
   <body>
     <header class="site-header">
@@ -50,7 +50,7 @@
             <h2 class="card-title">{{ product.title }}</h2>
             <p class="card-excerpt">{{ product.price }}</p>
             <p class="card-excerpt">{{ product.category_id.title }}</p>
-            <a href="/shop/details/{{ product.id }}" target="_blank">Show</a>
+            <a href="/shop/details/{{ product.slug }}" target="_blank">Show</a>
           </div>
         </li>
         {% endfor %}

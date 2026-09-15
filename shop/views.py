@@ -6,8 +6,8 @@ def index(request):
 
   return render(request, 'shop/index.html', { 'products': data })
 
-def details(request, id):
+def details(request, slug):
 
-  selected = Product.objects.get(id = id)
+  selected = Product.objects.get(slug = slug)
 
   return render(request, 'shop/details.html', { "product": selected })
