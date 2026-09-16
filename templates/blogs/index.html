@@ -1,85 +1,23 @@
+{% extends "layout/master.html" %}
 {% load static %}
+{% block page_title %} About {% endblock %}
 
-<!doctype html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog — ketab</title>
-    <meta name="description" content="All posts on ketab." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  </head>
-  <body>
-    <div class="grid-bg" aria-hidden="true"></div>
-    <div class="glow" aria-hidden="true"></div>
+{% block page_content %}
+  <div class="page-head">
+    <h1 class="page-title">Blog</h1>
+    <span class="count">{{ posts|length }} posts</span>
+  </div>
 
-    <header class="site-header">
-      <div class="wrap header-inner">
-        <a class="brand" href="index.html">
-          <span class="brand-mark">k</span>
-          <span class="brand-name">ketab</span>
-        </a>
-
-        <button
-          class="nav-toggle"
-          aria-expanded="false"
-          aria-controls="site-nav"
-          aria-label="Toggle menu"
-        >
-          <span></span><span></span><span></span>
-        </button>
-
-        <nav class="site-nav" id="site-nav">
-          <a href="/" class="nav-link">Home</a>
-          <a href="/blogs" class="nav-link is-active">Blog</a>
-          <a href="/shop" class="nav-link">Shop</a>
-          <a href="/about" class="nav-link">About</a>
-          <a href="/contact" class="nav-link">Contact</a>
-          <a href="/admin" class="nav-link nav-link--cta">Panel</a>
-        </nav>
+  <ul class="cards">
+    {% for item in posts %}
+    <li class="card">
+      <div class="card-body">
+        <h2 class="card-title">
+          <a href="{% url 'blogs_details' item.id %}">{{ item.title }}</a>
+        </h2>
+        <p class="card-excerpt">{{ item.content }}</p>
       </div>
-    </header>
-
-    <main class="wrap">
-      <div class="page-head">
-        <h1 class="page-title">Blog</h1>
-        <span class="count">{{ posts|length }} posts</span>
-      </div>
-
-      <ul class="cards">
-        {% for item in posts %}
-        <li class="card">
-          <div class="card-body">
-            <h2 class="card-title">
-              <a href="{% url 'blogs_details' item.id %}">{{ item.title }}</a>
-            </h2>
-            <p class="card-excerpt">{{ item.content }}</p>
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
-    </main>
-
-    <footer class="site-footer">
-      <div class="wrap footer-inner">
-        <span>© <span data-year>2026</span> ketab</span>
-        <nav class="footer-nav">
-          <a href="/">Home</a>
-          <a href="/blogs">Blog</a>
-          <a href="/shop">Shop</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/admin">Panel</a>
-        </nav>
-      </div>
-    </footer>
-
-    <script src="{% static 'js/main.js' %}"></script>
-  </body>
-</html>
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
