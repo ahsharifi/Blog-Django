@@ -1,74 +1,24 @@
-{% load static %}
+{% extends "layout/master.html" %} {% load static %} {% block page_title %} Shop
+{% endblock %} {% block page_content %}
+<main class="wrap">
+  <div class="page-head">
+    <h1 class="page-title">Shop</h1>
+    <span class="count">{{ products|length }} products</span>
+  </div>
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <title>Shop</title>
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="wrap header-inner">
-        <a class="brand" href="index.html">
-          <span class="brand-mark">k</span>
-          <span class="brand-name">ketab</span>
-        </a>
-
-        <button
-          class="nav-toggle"
-          aria-expanded="false"
-          aria-controls="site-nav"
-          aria-label="Toggle menu"
-        >
-          <span></span><span></span><span></span>
-        </button>
-
-        <nav class="site-nav" id="site-nav">
-          <a href="/" class="nav-link">Home</a>
-          <a href="/blogs" class="nav-link">Blog</a>
-          <a href="/shop" class="nav-link is-active">Shop</a>
-          <a href="/about" class="nav-link">About</a>
-          <a href="/contact" class="nav-link">Contact</a>
-          <a href="/admin" class="nav-link nav-link--cta">Panel</a>
-        </nav>
+  <ul class="cards">
+    {% for product in products %}
+    <li>
+      <div class="card-body">
+        <p class="card-excerpt">{{ forloop.counter }}</p>
+        <h2 class="card-title">{{ product.title }}</h2>
+        <p class="card-excerpt">{{ product.price }}</p>
+        <p class="card-excerpt">{{ product.category_id.title }}</p>
+        <a href="/shop/details/{{ product.slug }}" target="_blank">Show</a>
       </div>
-    </header>
+    </li>
+    {% endfor %}
+  </ul>
+</main>
 
-    <main class="wrap">
-      <div class="page-head">
-        <h1 class="page-title">Shop</h1>
-        <span class="count">{{ products|length }} products</span>
-      </div>
-
-      <ul class="cards">
-        {% for product in products %}
-        <li>
-          <div class="card-body">
-            <p class="card-excerpt">{{ forloop.counter }}</p>
-            <h2 class="card-title">{{ product.title }}</h2>
-            <p class="card-excerpt">{{ product.price }}</p>
-            <p class="card-excerpt">{{ product.category_id.title }}</p>
-            <a href="/shop/details/{{ product.slug }}" target="_blank">Show</a>
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
-    </main>
-
-    <footer class="site-footer">
-      <div class="wrap footer-inner">
-        <span>© <span data-year>2026</span> ketab</span>
-        <nav class="footer-nav">
-          <a href="/">Home</a>
-          <a href="/blogs">Blog</a>
-          <a href="/shop">Shop</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/admin">Panel</a>
-        </nav>
-      </div>
-    </footer>
-  </body>
-</html>
+{% endblock %}

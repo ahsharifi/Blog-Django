@@ -1,14 +1,9 @@
-{% load static %}
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
+{% extends "layout/master.html" %} {% load static %} {% block page_title %}
+Blog Details {% endblock %} {% block page_content %}
+<main class="wrap">
+  <div class="page-head">
     <h1>{{ data.title }}</h1>
     <p>{{ data.content }}</p>
-  </body>
-</html>
+</main>
+
+{% endblock %}

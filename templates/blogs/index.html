@@ -1,8 +1,6 @@
-{% extends "layout/master.html" %}
-{% load static %}
-{% block page_title %} About {% endblock %}
-
-{% block page_content %}
+{% extends "layout/master.html" %} {% load static %} {% block page_title %}
+About {% endblock %} {% block page_content %}
+<main class="wrap">
   <div class="page-head">
     <h1 class="page-title">Blog</h1>
     <span class="count">{{ posts|length }} posts</span>
@@ -20,4 +18,5 @@
     </li>
     {% endfor %}
   </ul>
+</main>
 {% endblock %}

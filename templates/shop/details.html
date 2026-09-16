@@ -1,14 +1,9 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Detail</title>
-  </head>
-  <body>
-    <h1>Title: {{ product.title }}</h1>
-    <p>Description: {{ product.description }}</p>
-    <p>Price: ${{ product.price }}</p>
-    <p>Category: {{ product.category_id }}</p>
-  </body>
-</html>
+{% extends "layout/master.html" %} {% load static %} {% block page_title %}
+Product Details {% endblock %} {% block page_content %}
+<main class="wrap">
+  <h1>Title: {{ product.title }}</h1>
+  <p>Description: {{ product.description }}</p>
+  <p>Price: ${{ product.price }}</p>
+  <p>Category: {{ product.category_id }}</p>
+</main>
+{% endblock %}
