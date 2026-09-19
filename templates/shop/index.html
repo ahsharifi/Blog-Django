@@ -8,15 +8,30 @@
 
   <ul class="cards">
     {% for product in products %}
-    <li>
+    <div class="card" style="width: 18rem">
+      <img
+        src="
+        {% if product.image %}
+          product.image
+        {% else %}
+          https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmr45ppi7bCqVNR4sE7QWdAgBVmqNEQmEVv2dT8_UWGg&s=10
+        {% endif %}
+      "
+        class="card-img-top"
+        alt="Product Image"
+      />
       <div class="card-body">
-        <p class="card-excerpt">{{ forloop.counter }}</p>
-        <h2 class="card-title">{{ product.title }}</h2>
-        <p class="card-excerpt">{{ product.price }}</p>
-        <p class="card-excerpt">{{ product.category_id.title }}</p>
-        <a href="/shop/details/{{ product.slug }}" target="_blank">Show</a>
+        <p class="card-text">{{ forloop.counter }}</p>
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">{{ product.price }}</p>
+        <p class="card-text">{{ product.category_id.title }}</p>
+        <a
+          href="{% url 'product_details' product.slug %}"
+          class="btn btn-primary"
+          >Show Product</a
+        >
       </div>
-    </li>
+    </div>
     {% endfor %}
   </ul>
 </main>
