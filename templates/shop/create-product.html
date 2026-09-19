@@ -1,0 +1,78 @@
+{% extends "layout/master.html" %}
+{% load static %}
+
+{% block page_content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8 col-lg-6">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body p-4 p-md-5">
+
+                    <h2 class="text-center mb-4">
+                        Create Product
+                    </h2>
+
+                    <form method="post">
+
+                        {% csrf_token %}
+
+                        {{ form.non_field_errors }}
+
+                        <!-- Name -->
+                        <div class="mb-3">
+                            {{ form.name.label_tag }}
+                            {{ form.name }}
+                            {{ form.name.errors }}
+                        </div>
+
+                        <!-- Slug -->
+                        <div class="mb-3">
+                            {{ form.slug.label_tag }}
+                            {{ form.slug }}
+                            {{ form.slug.errors }}
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            {{ form.description.label_tag }}
+                            {{ form.description }}
+                            {{ form.description.errors }}
+                        </div>
+
+                        <!-- Price -->
+                        <div class="mb-3">
+                            {{ form.price.label_tag }}
+                            {{ form.price }}
+                            {{ form.price.errors }}
+                        </div>
+
+                        <!-- Category -->
+                        <div class="mb-4">
+                            {{ form.category_id.label_tag }}
+                            {{ form.category_id }}
+                            {{ form.category_id.errors }}
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit" class="btn btn-primary w-100">
+                            Create Product
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
